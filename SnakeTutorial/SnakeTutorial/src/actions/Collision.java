@@ -4,7 +4,7 @@ import clocks.GameClock;
 import game.Snake;
 
 import java.util.concurrent.ThreadLocalRandom;
-
+//hallo Emmanuel
 public class Collision {
 
     public static boolean collideSelf() {
