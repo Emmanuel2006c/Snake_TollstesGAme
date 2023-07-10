@@ -8,13 +8,15 @@ import java.awt.*;
 public class Draw extends JLabel {
 
     Point p;
+    //Draw Background
 
-    protected void paintComponent(Graphics g) {
+
+    public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_OFF);
 
-        //Draw Background
+
         g.setColor(Color.LIGHT_GRAY);
         g.fillRect(0, 0, Gui.width, Gui.height);
 
@@ -65,5 +67,6 @@ public class Draw extends JLabel {
         repaint();
 
     }
+
 
 }
