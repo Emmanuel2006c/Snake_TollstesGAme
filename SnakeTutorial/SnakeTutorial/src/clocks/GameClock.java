@@ -47,6 +47,13 @@ public void setW(int w){
                         p = Snake.ptc(Snake.tails.get(i).getX(), Snake.tails.get(i).getY());
                         g.fillRect(p.x, p.y, 32, 32);
 
+                        /*lichtkoralisch	# F08080	RGB (240, 128, 128)
+                        Olive	# 808000	rgb (128,128,0)
+                        Kornblumenblau	# 6495ED	rgb (100, 149, 237)
+                       	khaki	# F0E68C	RGB (240, 230, 140)
+                        mittelpurpur	# 9370DB	RGB (147, 112, 219)
+                        */
+
                     }
                 }
                 if(Collision.collideSelf()){
