@@ -1,20 +1,25 @@
-package clocks;
-
+package clock;
 import actions.Collision;
 import game.Snake;
+import gui.*;
+import javax.swing.*;
+import java.awt.*;
 
 import java.util.concurrent.ThreadLocalRandom;
 
 import static game.Snake.gift;
 
-public class GameClock extends Thread{
+public class GameClock extends Thread,JLabel{
+    point p;
     public static boolean running = true;
 public int w= 100;
 public int tick=0;
 public void setW(int w){
     this.w = w;
 }
-    public void run(){
+    public void run(Graphics g){
+        super.paintComponent(g);
+        Graphics2D g2d = (Graphics2D) g;
         while(running){
             try {
                 tick++;
@@ -32,10 +37,17 @@ public void setW(int w){
                 if(Collision.collideKoks()){
                     this.setW(50);
                     tick = 0;
+
                 }
                 if(Collision.collideLSD()){
                     this.setW(50);
                     tick = 0;
+                    g.setColor(new Color(51, 204, 51));
+                    for (int i = 0; i < Snake.tails.size(); i++) {
+                        p = Snake.ptc(Snake.tails.get(i).getX(), Snake.tails.get(i).getY());
+                        g.fillRect(p.x, p.y, 32, 32);
+
+                    }
                 }
                 if(Collision.collideSelf()){
                     Snake.tails.clear();
