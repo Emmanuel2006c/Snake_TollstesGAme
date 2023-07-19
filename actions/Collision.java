@@ -1,6 +1,9 @@
 package actions;
 
+import clocks.GameClock;
 import game.Snake;
+
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Collision {
 
@@ -9,6 +12,7 @@ public class Collision {
             if(Snake.head.getX() == Snake.tails.get(i).getX() && Snake.head.getY() == Snake.tails.get(i).getY()
                     && !Snake.tails.get(i).isWait()){
                 return true;
+
             }
 
         }
@@ -27,8 +31,42 @@ public class Collision {
             Snake.addTail();
             Snake.score +=1;
             if(Snake.score > Snake.bestscore) Snake.bestscore = Snake.score;
+            game.Snake.gift.setX(300);
+            game.Snake.gift.setX(300);
+            game.Snake.koks.setX(300);
+            game.Snake.koks.setY(300);
+            int r = ThreadLocalRandom.current().nextInt(1,3);;
+            switch (r){
+                case 1:
+                    Snake.gift.reset();
+                    break;
+                case 2:
+                    Snake.koks.reset();
+                    break;
+            }
 
         }
+    }
+    public static boolean collideGift() {
+        if (Snake.head.getX() == Snake.gift.getX() && Snake.head.getY() == Snake.gift.getY()) {
+            Snake.gift.reset();
+            return true;
+        }
+        else{
+            return false;
+        }
+
+    }
+    public static boolean collideKoks() {
+        if (Snake.head.getX() == Snake.koks.getX() && Snake.head.getY() == Snake.koks.getY()) {
+            Snake.koks.setX(300);
+            Snake.koks.setY(300);
+            return true;
+        }
+        else{
+            return false;
+        }
+
     }
 
 }

@@ -2,12 +2,11 @@ package game;
 
 import java.util.concurrent.ThreadLocalRandom;
 
-public class PickUp {
+public class Gift {
     int x, y;
 
-    public PickUp(){
-        this.x = ThreadLocalRandom.current().nextInt(0,15);
-        this.y = ThreadLocalRandom.current().nextInt(0,15);
+    public Gift(){
+
     }
 
     public void reset(){
@@ -31,3 +30,4 @@ public class PickUp {
         this.y = y;
     }
 }
+
