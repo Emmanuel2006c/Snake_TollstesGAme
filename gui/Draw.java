@@ -8,8 +8,17 @@ import java.awt.*;
 public class Draw extends JLabel {
 
     Point p;
-
-    protected void paintComponent(Graphics g) {
+public void farbeaendern(Graphics g){
+    super.paintComponent(g);
+    Graphics2D g2d = (Graphics2D) g;
+    g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_OFF);
+    g.setColor(new Color(51, 2, 51));
+    for (int i = 0; i < Snake.tails.size(); i++) {
+        p = Snake.ptc(Snake.tails.get(i).getX(), Snake.tails.get(i).getY());
+        g.fillRect(p.x, p.y, 32, 32);
+    }
+}
+    public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_OFF);
@@ -24,6 +33,7 @@ public class Draw extends JLabel {
             p = Snake.ptc(Snake.tails.get(i).getX(), Snake.tails.get(i).getY());
             g.fillRect(p.x, p.y, 32, 32);
         }
+
 
         //Draw Snake Head
         g.setColor(new Color(0,153,0));
@@ -45,9 +55,9 @@ public class Draw extends JLabel {
         p = Snake.ptc(Snake.koks.getX(), Snake.koks.getY());
         g.fillRect(p.x,p.y, 32,32);
 
-        //LSD
-        g.setColor(new Color(240,128,128));
-        p = Snake.ptc(Snake.lsd.getX(), Snake.lsd.getY());
+        //Odd
+        g.setColor(new Color(0,50,0));
+        p = Snake.ptc(Snake.odd.getX(), Snake.odd.getY());
         g.fillRect(p.x,p.y, 32,32);
 
         //Draw Grid

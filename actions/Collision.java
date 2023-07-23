@@ -35,8 +35,8 @@ public class Collision {
             game.Snake.gift.setX(300);
             game.Snake.koks.setX(300);
             game.Snake.koks.setY(300);
-            game.Snake.lsd.setX(300);
-            game.Snake.lsd.setY(300);
+            game.Snake.odd.setX(300);
+            game.Snake.odd.setY(300);
             int r = ThreadLocalRandom.current().nextInt(1,4);;
             switch (r){
                 case 1:
@@ -46,7 +46,7 @@ public class Collision {
                     Snake.koks.reset();
                     break;
                 case 3:
-                    Snake.lsd.reset();
+                    Snake.odd.reset();
                     break;
             }
 
@@ -54,7 +54,20 @@ public class Collision {
     }
     public static boolean collideGift() {
         if (Snake.head.getX() == Snake.gift.getX() && Snake.head.getY() == Snake.gift.getY()) {
-            Snake.gift.reset();
+            Snake.gift.setX(300);
+            Snake.gift.setY(300);
+            int r = ThreadLocalRandom.current().nextInt(1,4);;
+            switch (r){
+                case 1:
+                    Snake.gift.reset();
+                    break;
+                case 2:
+                    Snake.koks.reset();
+                    break;
+                case 3:
+                    Snake.odd.reset();
+                    break;
+            }
             return true;
         }
         else{
@@ -66,6 +79,18 @@ public class Collision {
         if (Snake.head.getX() == Snake.koks.getX() && Snake.head.getY() == Snake.koks.getY()) {
             Snake.koks.setX(300);
             Snake.koks.setY(300);
+            int r = ThreadLocalRandom.current().nextInt(1,4);;
+            switch (r){
+                case 1:
+                    Snake.gift.reset();
+                    break;
+                case 2:
+                    Snake.koks.reset();
+                    break;
+                case 3:
+                    Snake.odd.reset();
+                    break;
+            }
             return true;
         }
         else{
@@ -73,10 +98,22 @@ public class Collision {
         }
 
     }
-    public static boolean collideLSD() {
-        if (Snake.head.getX() == Snake.lsd.getX() && Snake.head.getY() == Snake.lsd.getY()) {
-            Snake.lsd.setX(300);
-            Snake.lsd.setY(300);
+    public static boolean collideOdd() {
+        if (Snake.head.getX() == Snake.odd.getX() && Snake.head.getY() == Snake.odd.getY()) {
+            Snake.odd.setX(300);
+            Snake.odd.setY(300);
+            int r = ThreadLocalRandom.current().nextInt(1,4);;
+            switch (r){
+                case 1:
+                    Snake.gift.reset();
+                    break;
+                case 2:
+                    Snake.koks.reset();
+                    break;
+                case 3:
+                    Snake.odd.reset();
+                    break;
+            }
             return true;
         }
         else{

@@ -9,17 +9,26 @@ import static game.Snake.gift;
 
 public class GameClock extends Thread{
     public static boolean running = true;
-    public int w= 200;
-    public int tick=0;
+    public int w= 150;
+    public int tickK=0;
+    public int tickO;
     public void setW(int w){
         this.w = w;
     }
     public void run(){
         while(running){
             try {
-                tick++;
-                if(tick >100){
-                    this.setW(200);
+                tickK++;
+                tickO++;
+                if(tickK >100){
+                    this.setW(150);
+                    tickK = -9999999;
+                    System.out.println("koksWeg"); //debugging
+                }
+                if(tickO >50){
+                    this.setW(150);
+                    tickO = -9999999;
+                    System.out.println("ODDWeg"); //debugging
                 }
                 sleep(w);
                 Snake.move();
@@ -31,11 +40,11 @@ public class GameClock extends Thread{
                 }
                 if(Collision.collideKoks()){
                     this.setW(50);
-                    tick = 0;
+                    tickK = 0;
                 }
-                if(Collision.collideLSD()){
-                    this.setW(50);
-                    tick = 0;
+                if(Collision.collideOdd()){
+                    this.setW(300);
+                    tickO = 0;
                 }
                 if(Collision.collideSelf()){
                     Snake.tails.clear();
