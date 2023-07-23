@@ -9,7 +9,7 @@ import static game.Snake.gift;
 
 public class GameClock extends Thread{
     public static boolean running = true;
-    public int w= 100;
+    public int w= 200;
     public int tick=0;
     public void setW(int w){
         this.w = w;
@@ -19,7 +19,7 @@ public class GameClock extends Thread{
             try {
                 tick++;
                 if(tick >100){
-                    this.setW(100);
+                    this.setW(200);
                 }
                 sleep(w);
                 Snake.move();
