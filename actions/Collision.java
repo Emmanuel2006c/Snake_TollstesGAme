@@ -35,13 +35,18 @@ public class Collision {
             game.Snake.gift.setX(300);
             game.Snake.koks.setX(300);
             game.Snake.koks.setY(300);
-            int r = ThreadLocalRandom.current().nextInt(1,3);;
+            game.Snake.lsd.setX(300);
+            game.Snake.lsd.setY(300);
+            int r = ThreadLocalRandom.current().nextInt(1,4);;
             switch (r){
                 case 1:
                     Snake.gift.reset();
                     break;
                 case 2:
                     Snake.koks.reset();
+                    break;
+                case 3:
+                    Snake.lsd.reset();
                     break;
             }
 
@@ -61,6 +66,17 @@ public class Collision {
         if (Snake.head.getX() == Snake.koks.getX() && Snake.head.getY() == Snake.koks.getY()) {
             Snake.koks.setX(300);
             Snake.koks.setY(300);
+            return true;
+        }
+        else{
+            return false;
+        }
+
+    }
+    public static boolean collideLSD() {
+        if (Snake.head.getX() == Snake.lsd.getX() && Snake.head.getY() == Snake.lsd.getY()) {
+            Snake.lsd.setX(300);
+            Snake.lsd.setY(300);
             return true;
         }
         else{

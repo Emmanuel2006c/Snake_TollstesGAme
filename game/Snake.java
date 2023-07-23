@@ -18,6 +18,7 @@ public class Snake {
     public static PickUp pickup = new PickUp();
     public static Gift gift = new Gift();
     public  static Koks koks = new Koks();
+    public static LSD lsd = new LSD();
 
     public static void addTail() {
         if (tails.size() < 1) {

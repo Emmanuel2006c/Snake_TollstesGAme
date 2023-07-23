@@ -33,6 +33,10 @@ public class GameClock extends Thread{
                     this.setW(50);
                     tick = 0;
                 }
+                if(Collision.collideLSD()){
+                    this.setW(50);
+                    tick = 0;
+                }
                 if(Collision.collideSelf()){
                     Snake.tails.clear();
                     Snake.score = 0;
